@@ -12,7 +12,7 @@ const NewsDetail = () => {
 
     const [news,setNews]=useState("")
     useEffect(()=>{
-        fetch(`http://localhost:5000/news/${id}`)
+        fetch(`https://news-dragon-server-inpqy58dk-suvrodev.vercel.app/news/${id}`)
         .then(res=>res.json())
         .then(data=>setNews(data))
     },[])
