@@ -1,0 +1,11 @@
+.Grid_{
+    display: grid;
+    grid-template-columns: 9fr 3fr;
+}
+
+@media only screen and (max-width: 576px) {
+    .Grid_{
+        display: grid;
+        grid-template-columns:repeat(1,1fr);
+    }
+}

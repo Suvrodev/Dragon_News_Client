@@ -1,0 +1,9 @@
+.Grid{
+    display: grid;
+    grid-template-columns: 3fr 6fr 3fr;
+}
+@media screen and (max-width: 476px) {
+    .Grid{
+        grid-template-columns: repeat(1,1fr);
+    }
+}
