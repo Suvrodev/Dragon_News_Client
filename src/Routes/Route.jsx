@@ -16,12 +16,14 @@ import Career from "../Pages/Others/Career/Career";
 import Login from "../Pages/Login/Login";
 import Registration from "../Pages/Registration/Registration";
 import PrivateRoutes from "./PrivateRoutes";
+import ErrorElement from "../Pages/ErrorElement/ErrorElement";
 
 
 const router = createBrowserRouter([
     {
       path: "/",
       element: <Main></Main>,
+      errorElement: <ErrorElement></ErrorElement>,
       children:[
         {
             path: '/',

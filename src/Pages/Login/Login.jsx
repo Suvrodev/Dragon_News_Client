@@ -19,7 +19,7 @@ const Login = () => {
 
     const location=useLocation()
     console.log("Location Login: ",location);
-    const targetPage=location?.state?.from || '/login'
+    const targetPage=location?.state?.from || '/categories/0'
     const navigate=useNavigate()
 
     const handleLogin=(event)=>{
