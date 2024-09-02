@@ -16,7 +16,8 @@ import {
 } from "react-icons/fa";
 
 const LeftNav = () => {
-  const { baseUrl, user, signInByGoogle } = useContext(AuthContext);
+  const { baseUrl, user, googleLogin, successfullToast } =
+    useContext(AuthContext);
   const [categories, setCategories] = useState([]);
   const [dep, setDep] = useState(true);
 
@@ -30,6 +31,18 @@ const LeftNav = () => {
 
   const handleCategory = (id) => {
     console.log("Id: ", id);
+  };
+
+  const signInByGoogle = () => {
+    googleLogin()
+      .then((res) => {
+        const loggedUser = res.user;
+        console.log(loggedUser);
+        successfullToast("Successfully Login");
+      })
+      .catch((error) => {
+        console.log("Error: ", error.message);
+      });
   };
 
   return (
