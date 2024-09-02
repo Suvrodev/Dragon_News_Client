@@ -1,25 +1,24 @@
-import React from 'react';
-import Category from './Category';
-import { useNavigate } from 'react-router-dom';
-import { Helmet } from 'react-helmet-async';
+import React, { useEffect } from "react";
+import Category from "./Category";
+import { useNavigate } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 
 const Home = () => {
-    const navigate=useNavigate()
-    // navigate('/categories/0')
+  const navigate = useNavigate();
 
-    return (
-        <div>
-             <Helmet>
-                <title>Home || Dragon News</title>
-            </Helmet>
+  useEffect(() => {
+    navigate("/categories/0");
+  }, []);
 
-            {/* <h1>Home</h1> */}
-            <Category></Category>
-            {
-                // navigate('/categories/0')
-            }
-        </div>
-    );
+  return (
+    <div>
+      <Helmet>
+        <title>Home || Dragon News</title>
+      </Helmet>
+
+      {/* <Category></Category> */}
+    </div>
+  );
 };
 
 export default Home;

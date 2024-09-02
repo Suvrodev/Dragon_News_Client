@@ -18,49 +18,56 @@ import Registration from "../Pages/Registration/Registration";
 import PrivateRoutes from "./PrivateRoutes";
 import ErrorElement from "../Pages/ErrorElement/ErrorElement";
 
-
 const router = createBrowserRouter([
-    {
-      path: "/",
-      element: <Main></Main>,
-      errorElement: <ErrorElement></ErrorElement>,
-      children:[
-        {
-            path: '/',
-            element: <Home></Home>
-        },
-        {
-          path: '/categories/:id',
-          element: <Category></Category>
-        },
-      ]
-    },
-    {
-      path: 'detail',
-      element: <NewsDetailsPage></NewsDetailsPage>,
-      children:[
-        {
-          path: '/detail/:id',
-          element: <PrivateRoutes><NewsDetail></NewsDetail></PrivateRoutes>
-        }
-      ]
-    },
-    {
-      path: 'about',
-      element: <About></About>
-    },
-    {
-      path: 'career',
-      element: <Career></Career>
-    },
-    {
-      path: 'login',
-      element: <Login></Login>
-    },
-    {
-      path: 'registration',
-      element: <Registration></Registration>
-    }
-  ]);
+  {
+    path: "/",
+    element: <Main></Main>,
+    errorElement: <ErrorElement></ErrorElement>,
+    children: [
+      // {
+      //     path: '/',
+      //     element: <Home></Home>
+      // },
+      {
+        path: "/",
+        element: <Navigate to={"/categories/0"}></Navigate>,
+      },
+      {
+        path: "/categories/:id",
+        element: <Category></Category>,
+      },
+    ],
+  },
+  {
+    path: "detail",
+    element: <NewsDetailsPage></NewsDetailsPage>,
+    children: [
+      {
+        path: "/detail/:id",
+        element: (
+          <PrivateRoutes>
+            <NewsDetail></NewsDetail>
+          </PrivateRoutes>
+        ),
+      },
+    ],
+  },
+  {
+    path: "about",
+    element: <About></About>,
+  },
+  {
+    path: "career",
+    element: <Career></Career>,
+  },
+  {
+    path: "login",
+    element: <Login></Login>,
+  },
+  {
+    path: "registration",
+    element: <Registration></Registration>,
+  },
+]);
 
-  export default router
+export default router;
