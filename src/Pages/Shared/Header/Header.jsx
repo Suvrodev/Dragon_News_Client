@@ -6,7 +6,7 @@ import Navbar from "../Navbar/Navbar";
 
 const Header = () => {
   return (
-    <div>
+    <div className=" p-5 md:p-5">
       <div className="text-center ">
         <img className="mx-auto" src={logo} alt="" />
         <p>

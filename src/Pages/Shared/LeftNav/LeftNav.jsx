@@ -7,8 +7,16 @@ import img3 from "../../../assets/3.png";
 import { FaCalendarDay } from "react-icons/fa6";
 import { AuthContext } from "../../Provider/AuthProvider";
 
+import {
+  FaFacebook,
+  FaGithub,
+  FaGoogle,
+  FaInstagram,
+  FaTwitter,
+} from "react-icons/fa";
+
 const LeftNav = () => {
-  const { baseUrl } = useContext(AuthContext);
+  const { baseUrl, user, signInByGoogle } = useContext(AuthContext);
   const [categories, setCategories] = useState([]);
   const [dep, setDep] = useState(true);
 
@@ -26,6 +34,26 @@ const LeftNav = () => {
 
   return (
     <div className="sticky top-1">
+      <div className=" md:hidden">
+        <h4 className="text-xl font-bold mb-4">Login With</h4>
+        <div className="flex gap-2">
+          <button
+            onClick={signInByGoogle}
+            className="btn btn-outline btn-info  "
+            disabled={user}
+          >
+            <FaGoogle className="text-yellow-500" />{" "}
+            <p className="text-black "> Google</p>
+          </button>
+
+          <button className="btn btn-outline btn-info  " disabled={user}>
+            <FaGithub className="text-black" />{" "}
+            <p className="text-black"> Github</p>
+          </button>
+        </div>
+      </div>
+
+      {/* Category for desktop */}
       <div className="hidden md:block">
         <h1 className="text-xl font-bold mb-4">All Categories</h1>
         <div className=" grid grid-cols-1 gap-4 ">
@@ -39,7 +67,11 @@ const LeftNav = () => {
         </div>
       </div>
 
-      <div className="collapse collapse-arrow " onClick={() => setDep(!dep)}>
+      {/* Category For Mobile  */}
+      <div
+        className="md:hidden collapse collapse-arrow "
+        onClick={() => setDep(!dep)}
+      >
         <input type="checkbox" />
         <div className="collapse-title text-xl font-bold mb-4">
           All Categories
